@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Contacto — AHS Algarve Home Stay</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
+body{margin:0;background:#F7F5EF;}
+a{color:#C9A227;}
+a:hover{color:#10203E;}
+input,select,textarea{font-family:'Manrope',sans-serif;}
+</style>
+</helmet>
+<div style="font-family:'Manrope',sans-serif;background:#F7F5EF;color:#1B2430;">
+<dc-import name="Nav" active="contacto" hint-size="100%,80px"></dc-import>
+
+<section style="padding:{{ heroPad }};background:#10203E;">
+  <div style="max-width:900px;margin:0 auto;text-align:center;">
+    <div style="font-size:13px;letter-spacing:0.2em;text-transform:uppercase;color:#C9A227;margin-bottom:20px;">Contacto</div>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(32px,4.6vw,48px);color:#FBFAF6;margin:0 0 16px;line-height:1.15;">Vamos falar sobre o seu património.</h1>
+    <p style="font-size:16px;color:#C7CBD6;max-width:520px;margin:0 auto;line-height:1.6;">Uma conversa de 30 minutos, sem compromisso, para perceber onde está o seu imóvel — e onde poderia estar.</p>
+  </div>
+</section>
+
+<section style="padding:{{ formSectionPad }};background:#F7F5EF;">
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:{{ mainCols }};gap:{{ mainGap }};">
+
+    <div>
+      <div style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#C9A227;margin-bottom:20px;">Fale connosco diretamente</div>
+      <div style="display:flex;flex-direction:column;gap:24px;margin-bottom:40px;">
+        <div>
+          <div style="font-size:12px;color:#8A93A8;margin-bottom:4px;">Email</div>
+          <a href="mailto:ahspropriedades@gmail.com" style="font-size:17px;color:#10203E;font-weight:600;text-decoration:none;">ahspropriedades@gmail.com</a>
+        </div>
+        <div>
+          <div style="font-size:12px;color:#8A93A8;margin-bottom:4px;">Telefone</div>
+          <a href="tel:+351912647423" style="font-size:17px;color:#10203E;font-weight:600;text-decoration:none;">+351 912 647 423</a>
+        </div>
+        <div>
+          <div style="font-size:12px;color:#8A93A8;margin-bottom:4px;">Localização</div>
+          <span style="font-size:17px;color:#10203E;font-weight:600;">Armação de Pêra, Algarve, Portugal</span>
+        </div>
+      </div>
+      <div style="background:#EFEBE0;padding:28px;border-left:3px solid #C9A227;">
+        <p style="font-size:14px;color:#3F4657;line-height:1.6;margin:0;">Já é cliente AHS? Aceda ao seu dashboard financeiro pela <a href="area-cliente.html" style="color:#10203E;font-weight:700;">Área do Cliente</a>.</p>
+      </div>
+    </div>
+
+    <form onSubmit="{{ handleSubmit }}" style="background:#FBFAF6;padding:{{ formPad }};display:flex;flex-direction:column;gap:20px;box-shadow:0 1px 0 rgba(16,32,62,0.06);box-sizing:border-box;">
+      <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+        <div style="text-align:center;padding:40px 0;">
+          <div style="font-size:18px;color:#10203E;font-weight:700;margin-bottom:8px;">Mensagem enviada!</div>
+          <p style="font-size:14px;color:#5A6272;line-height:1.6;margin:0;">Obrigado pelo contacto. Responderemos brevemente.</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+      <div style="display:grid;grid-template-columns:{{ formRowCols }};gap:20px;">
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <label style="font-size:12px;color:#5A6272;font-weight:600;">Nome</label>
+          <input ref="{{ nameRef }}" name="name" type="text" placeholder="O seu nome" required style="border:1px solid #10203E30;padding:13px 14px;font-size:14px;background:#fff;color:#1B2430;" />
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <label style="font-size:12px;color:#5A6272;font-weight:600;">Email</label>
+          <input ref="{{ emailRef }}" name="email" type="email" placeholder="o.seu@email.com" required style="border:1px solid #10203E30;padding:13px 14px;font-size:14px;background:#fff;color:#1B2430;" />
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <label style="font-size:12px;color:#5A6272;font-weight:600;">Telefone</label>
+        <input ref="{{ phoneRef }}" name="phone" type="tel" placeholder="+351" style="border:1px solid #10203E30;padding:13px 14px;font-size:14px;background:#fff;color:#1B2430;" />
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <label style="font-size:12px;color:#5A6272;font-weight:600;">Tenho interesse em</label>
+        <select ref="{{ interestRef }}" name="interest" style="border:1px solid #10203E30;padding:13px 14px;font-size:14px;background:#fff;color:#1B2430;">
+          <option>Investimento</option>
+          <option>Consultoria Estratégica</option>
+          <option>Desenvolvimento</option>
+          <option>Construção & Remodelação</option>
+          <option>Exploração do meu imóvel</option>
+          <option>Gestão Patrimonial</option>
+        </select>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <label style="font-size:12px;color:#5A6272;font-weight:600;">Mensagem</label>
+        <textarea ref="{{ messageRef }}" name="message" rows="4" placeholder="Conte-nos sobre o seu imóvel ou objetivo de investimento." style="border:1px solid #10203E30;padding:13px 14px;font-size:14px;background:#fff;color:#1B2430;resize:vertical;"></textarea>
+      </div>
+      <sc-if value="{{ hasError }}" hint-placeholder-val="{{ false }}">
+        <div style="font-size:13px;color:#B4432E;">Ocorreu um erro ao enviar. Tente novamente ou contacte-nos diretamente por email.</div>
+      </sc-if>
+      <button type="submit" disabled="{{ isSending }}" style="background:#C9A227;color:#10203E;border:none;font-size:14px;font-weight:700;padding:16px;letter-spacing:0.02em;cursor:pointer;">{{ submitLabel }}</button>
+      </sc-if>
+    </form>
+
+  </div>
+</section>
+
+<dc-import name="Footer" hint-size="100%,400px"></dc-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { width: typeof window !== 'undefined' ? window.innerWidth : 1280, submitted: false, isSending: false, hasError: false };
+  componentDidMount() { this._onResize = () => this.setState({ width: window.innerWidth }); window.addEventListener('resize', this._onResize); }
+  componentWillUnmount() { window.removeEventListener('resize', this._onResize); }
+  nameRef = React.createRef();
+  emailRef = React.createRef();
+  phoneRef = React.createRef();
+  interestRef = React.createRef();
+  messageRef = React.createRef();
+  handleSubmit = async (e) => {
+    e.preventDefault();
+    this.setState({ isSending: true, hasError: false });
+    const data = {
+      name: this.nameRef.current?.value || '',
+      email: this.emailRef.current?.value || '',
+      phone: this.phoneRef.current?.value || '',
+      interest: this.interestRef.current?.value || '',
+      message: this.messageRef.current?.value || '',
+    };
+    try {
+      const res = await fetch('https://formspree.io/f/xgogovkk', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (res.ok) {
+        this.setState({ submitted: true, isSending: false });
+      } else {
+        this.setState({ hasError: true, isSending: false });
+      }
+    } catch (err) {
+      this.setState({ hasError: true, isSending: false });
+    }
+  };
+  renderVals() {
+    const isMobile = this.state.width < 900;
+    return {
+      heroPad: isMobile ? '104px 20px 32px' : '140px 32px 32px',
+      formSectionPad: isMobile ? '48px 20px 64px' : '80px 32px 100px',
+      mainCols: isMobile ? '1fr' : '1fr 1.2fr',
+      mainGap: isMobile ? '40px' : '64px',
+      formPad: isMobile ? '28px 24px' : '44px',
+      formRowCols: isMobile ? '1fr' : '1fr 1fr',
+      handleSubmit: this.handleSubmit,
+      nameRef: this.nameRef,
+      emailRef: this.emailRef,
+      phoneRef: this.phoneRef,
+      interestRef: this.interestRef,
+      messageRef: this.messageRef,
+      submitted: this.state.submitted,
+      notSubmitted: !this.state.submitted,
+      hasError: this.state.hasError,
+      isSending: this.state.isSending,
+      submitLabel: this.state.isSending ? 'A enviar...' : 'Agendar Consulta Patrimonial',
+    };
+  }
+}
+</script>
+</body>
+</html>
