@@ -81,6 +81,36 @@ a:hover{color:#10203E;}
   </div>
 </section>
 
+<section style="padding:{{ hubPad }};background:#FBFAF6;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#C9A227;margin-bottom:16px;">Knowledge Hub do Pilar Exploração</div>
+    <div style="display:grid;grid-template-columns:{{ hubCols }};gap:{{ hubGap }};align-items:start;">
+      <div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,44px);font-weight:600;color:#10203E;margin:0 0 18px;line-height:1.12;">Guias, perguntas e processo para proprietários.</h2>
+        <p style="font-size:16px;line-height:1.7;color:#4D5566;margin:0;">Conteúdo do pilar Exploração para responder dúvidas sobre alojamento local, Airbnb, Booking, operação, preço, custos, IA e rentabilidade no Algarve.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:{{ hubCardCols }};gap:14px;">
+        <a href="guias.html" style="display:block;background:#F7F5EF;border-top:3px solid #C9A227;padding:20px;text-decoration:none;">
+          <strong style="display:block;color:#10203E;margin-bottom:8px;">Exploração Knowledge Hub</strong>
+          <span style="font-size:14px;line-height:1.6;color:#4D5566;">Índice dos guias práticos para rentabilização e operação.</span>
+        </a>
+        <a href="faq-alojamento-local.html" style="display:block;background:#F7F5EF;border-top:3px solid #C9A227;padding:20px;text-decoration:none;">
+          <strong style="display:block;color:#10203E;margin-bottom:8px;">FAQ Alojamento Local</strong>
+          <span style="font-size:14px;line-height:1.6;color:#4D5566;">200 perguntas e respostas estruturadas para SEO e IA.</span>
+        </a>
+        <a href="como-trabalhamos.html" style="display:block;background:#F7F5EF;border-top:3px solid #C9A227;padding:20px;text-decoration:none;">
+          <strong style="display:block;color:#10203E;margin-bottom:8px;">Como Trabalhamos</strong>
+          <span style="font-size:14px;line-height:1.6;color:#4D5566;">Fluxo operacional da avaliação aos relatórios.</span>
+        </a>
+        <a href="inteligencia-artificial-gestao-alojamento-local.html" style="display:block;background:#F7F5EF;border-top:3px solid #C9A227;padding:20px;text-decoration:none;">
+          <strong style="display:block;color:#10203E;margin-bottom:8px;">IA na Gestão de AL</strong>
+          <span style="font-size:14px;line-height:1.6;color:#4D5566;">Pricing, automação, calendários e leitura de receita.</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section style="padding:{{ outrosPad }};background:#EFEBE0;">
   <div style="max-width:1100px;margin:0 auto;">
     <div style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#C9A227;margin-bottom:24px;text-align:center;">Explore os Outros Pilares</div>
@@ -110,6 +140,10 @@ class Component extends DCLogic {
       servicosPad: isMobile ? '40px 20px 56px' : '64px 32px 96px',
       pilarCols: isMobile ? '1fr' : '1.1fr 1fr',
       pilarGap: isMobile ? '40px' : '64px',
+      hubPad: isMobile ? '56px 20px 64px' : '88px 32px 96px',
+      hubCols: isMobile ? '1fr' : '0.82fr 1.18fr',
+      hubCardCols: isMobile ? '1fr' : '1fr 1fr',
+      hubGap: isMobile ? '32px' : '48px',
       outrosPad: isMobile ? '56px 20px 64px' : '80px 32px 100px',
       modelos: ['Alojamento Local','Média duração','Longa duração','Corporate Housing','Student Housing','Luxury Rentals'],
       servicos: ['Revenue Management','Marketing','Comunicação','Check-in','Limpeza','Lavandaria','Manutenção','Atendimento'],
