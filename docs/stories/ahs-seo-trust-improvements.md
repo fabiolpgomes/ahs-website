@@ -24,6 +24,10 @@ The public site at `https://algarvehomestay.pt` had basic static pages online, b
 - [x] JSON-LD parse validation.
 - [x] Local static server smoke test for key URLs.
 - [x] Production HTTP baseline checked before implementation.
+- [x] `npm run lint`
+- [x] `npm run typecheck`
+- [x] `npm test`
+- [x] `npm run build`
 
 ## File List
 - `index.html`
@@ -45,6 +49,8 @@ The public site at `https://algarvehomestay.pt` had basic static pages online, b
 - `sitemap.xml`
 - `site.webmanifest`
 - `vercel.json`
+- `package.json`
+- `scripts/validate-static-site.js`
 - `favicon.ico`
 - `favicon.png`
 - `apple-touch-icon.png`
