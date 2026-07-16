@@ -22,6 +22,7 @@ const files = [
   'favicon.ico',
   'favicon.png',
   'Footer.dc.html',
+  'llms.txt',
   'Nav.dc.html',
   'robots.txt',
   'site.webmanifest',

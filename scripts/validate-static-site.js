@@ -47,6 +47,23 @@ if (!/<loc>https:\/\/algarvehomestay\.pt\/<\/loc>/.test(sitemap)) fail('sitemap 
 
 const robots = read('robots.txt');
 if (!robots.includes('Sitemap: https://algarvehomestay.pt/sitemap.xml')) fail('robots.txt missing sitemap');
+for (const bot of ['OAI-SearchBot', 'GPTBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Perplexity-User', 'Google-Extended']) {
+  if (!robots.includes(`User-agent: ${bot}`)) fail(`robots.txt missing AI bot: ${bot}`);
+}
+
+const llms = read('llms.txt');
+if (!llms.startsWith('# AHS Algarve Home Stay')) fail('llms.txt missing site H1');
+for (const page of publicPages.filter((file) => !['area-cliente.html'].includes(file))) {
+  if (!sitemap.includes(`https://algarvehomestay.pt/${page === 'index.html' ? '' : page}`)) {
+    fail(`sitemap missing public page: ${page}`);
+  }
+}
+for (const match of llms.matchAll(/\]\(https:\/\/algarvehomestay\.pt\/([^)]+)\)/g)) {
+  const target = match[1] || 'index.html';
+  if (target && target !== '' && !fs.existsSync(path.join(root, target))) {
+    fail(`llms.txt missing linked page: ${target}`);
+  }
+}
 
 const areaCliente = read('area-cliente.html');
 if (!/noindex, nofollow/.test(areaCliente)) fail('area-cliente missing noindex');
@@ -58,14 +75,16 @@ for (const icon of manifest.icons || []) {
   if (!fs.existsSync(iconPath)) fail(`manifest icon missing: ${icon.src}`);
 }
 
-const index = read('index.html');
-const jsonLdBlocks = [...index.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
-if (!jsonLdBlocks.length) fail('index missing JSON-LD');
-for (const [, block] of jsonLdBlocks) {
-  try {
-    JSON.parse(block);
-  } catch (error) {
-    fail(`invalid JSON-LD: ${error.message}`);
+for (const file of publicPages.filter((page) => page !== 'area-cliente.html')) {
+  const html = read(file);
+  const jsonLdBlocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
+  if (!jsonLdBlocks.length) fail(`${file}: missing JSON-LD`);
+  for (const [, block] of jsonLdBlocks) {
+    try {
+      JSON.parse(block);
+    } catch (error) {
+      fail(`${file}: invalid JSON-LD: ${error.message}`);
+    }
   }
 }
 
