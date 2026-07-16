@@ -36,6 +36,21 @@ Contacto principal: ahspropriedades@gmail.com, +351 912 647 423. Base operaciona
 - [Metodologia e Casos de Sucesso](https://algarvehomestay.pt/casos-sucesso.html): Indicadores, processos e critérios usados pela AHS.
 - [Apresentação de Locação de Curta Temporada](https://algarvehomestay.pt/apresentacao-locacao-curta-temporada.html): Explicação da oportunidade de locação e exploração de curto prazo.
 
+## Pilar Exploração: Knowledge Hub e Respostas para IA
+
+- [Exploração Knowledge Hub](https://algarvehomestay.pt/guias.html): Índice de guias do pilar Exploração sobre gestão de alojamento local, Airbnb, Booking, rendimento e operação.
+- [FAQ Alojamento Local](https://algarvehomestay.pt/faq-alojamento-local.html): 200 perguntas e respostas para proprietários dentro do pilar Exploração.
+- [Como Trabalhamos](https://algarvehomestay.pt/como-trabalhamos.html): Processo AHS de exploração, desde avaliação até relatórios.
+- [Inteligência Artificial na Gestão de Alojamento Local](https://algarvehomestay.pt/inteligencia-artificial-gestao-alojamento-local.html): Uso de IA, pricing, automação e relatórios no pilar Exploração.
+- [Como aumentar a ocupação no Airbnb](https://algarvehomestay.pt/como-aumentar-ocupacao-airbnb.html): Guia prático para melhorar ocupação no Airbnb através de posicionamento, preço, fotografia, calendário e experiência do hóspede.
+- [Como funciona a gestão de alojamento local](https://algarvehomestay.pt/como-funciona-gestao-alojamento-local.html): Explicação completa do funcionamento da gestão de alojamento local, desde avaliação do imóvel até reservas, limpeza e relatórios.
+- [Quanto custa gerir um Airbnb no Algarve](https://algarvehomestay.pt/quanto-custa-gerir-airbnb.html): Guia sobre custos de gestão de Airbnb, comissões, limpeza, manutenção, lavandaria e fatores que afetam a rentabilidade.
+- [Alojamento Local em Portugal | Guia AHS](https://algarvehomestay.pt/alojamento-local-portugal.html): Guia orientativo sobre alojamento local em Portugal, responsabilidades do proprietário e pontos a confirmar antes de explorar um imóvel.
+- [Booking vs Airbnb para alojamento local](https://algarvehomestay.pt/booking-vs-airbnb.html): Comparação prática entre Booking e Airbnb para proprietários de alojamento local no Algarve.
+- [Como aumentar ADR e RevPAR no alojamento local](https://algarvehomestay.pt/aumentar-adr-revpar.html): Explicação simples de ADR, RevPAR e como melhorar rendimento sem olhar apenas para ocupação.
+- [Como declarar rendimentos de alojamento local | Guia orientativo AHS](https://algarvehomestay.pt/declarar-rendimentos-alojamento-local.html): Guia orientativo sobre rendimentos de alojamento local e a importância de validação contabilística e fiscal atualizada.
+- [Como preparar um imóvel para alojamento local](https://algarvehomestay.pt/preparar-imovel-para-alojamento-local.html): Checklist estratégica para preparar um imóvel para alojamento local, desde conforto e fotografia até manutenção e operação.
+
 ## Notas para Agentes
 
 - AHS não se posiciona apenas como imobiliária, construtora ou empresa de alojamento local; a proposta é integrar investimento, preparação, operação e gestão patrimonial.
