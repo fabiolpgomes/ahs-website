@@ -2,7 +2,7 @@
 
 ## Status
 
-Ready for Review
+Done
 
 ## Objetivo
 
@@ -30,7 +30,7 @@ Criar o hub editorial do pilar Exploração para aumentar autoridade temática, 
 - [x] `npm run typecheck` passa.
 - [x] `npm test` passa.
 - [x] `npm run build` passa.
-- [ ] Preview e produção verificados por smoke test.
+- [x] Preview e produção verificados por smoke test.
 
 ## File List
 
