@@ -1,7 +1,7 @@
 # AHS AI GEO Foundation
 
 ## Status
-In Progress
+Done
 
 ## Story
 As AHS, I want the public website to expose a clearer brand entity, structured data, AI crawler access guidance, an LLM-oriented content map, and local landing pages so search engines and AI answer systems can better understand what the company does and where it operates.
@@ -24,7 +24,7 @@ As AHS, I want the public website to expose a clearer brand entity, structured d
 - [x] Update sitemap.
 - [x] Extend static validation for `llms.txt`, AI bot rules, sitemap coverage and JSON-LD.
 - [x] Run full quality gates.
-- [ ] Deploy and smoke test production.
+- [x] Deploy and smoke test production.
 
 ## Dev Agent Record
 ### Agent Model Used
@@ -35,6 +35,8 @@ GPT-5 Codex
 - `npm run typecheck` passed.
 - `npm test` passed.
 - `npm run build` passed.
+- Production deployment ready on Vercel.
+- Production smoke passed for `/llms.txt`, `/robots.txt` and `gestao-al-portimao.html`.
 
 ### Completion Notes List
 - Fundadores, ano de criação, redes sociais and reviews were intentionally not invented; add when factual source data is available.
