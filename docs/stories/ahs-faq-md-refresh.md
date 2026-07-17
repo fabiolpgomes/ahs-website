@@ -2,7 +2,7 @@
 
 ## Status
 
-Ready for Review
+Done
 
 ## Objetivo
 
@@ -28,7 +28,7 @@ Atualizar a FAQ do pilar Exploração com o conteúdo fornecido em `FAQ.md`, man
 - [x] `npm run typecheck` passa.
 - [x] `npm test` passa.
 - [x] `npm run build` passa.
-- [ ] Preview e produção verificados por smoke test.
+- [x] Preview e produção verificados por smoke test.
 
 ## File List
 
