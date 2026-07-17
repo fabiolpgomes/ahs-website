@@ -2,7 +2,7 @@
 
 ## Status
 
-Ready for Review
+Done
 
 ## Objetivo
 
@@ -24,7 +24,7 @@ Alterar a tipografia principal do site para uma fonte serifada, melhorando a exp
 - [x] `npm run typecheck` passa.
 - [x] `npm test` passa.
 - [x] `npm run build` passa.
-- [ ] Produção verificada após deploy.
+- [x] Produção verificada após deploy.
 
 ## File List
 
