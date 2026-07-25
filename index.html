@@ -31,8 +31,8 @@
       "name": "AHS Algarve Home Stay",
       "alternateName": ["Algarve Home Stay", "AHS"],
       "url": "https://algarvehomestay.pt",
-      "logo": "https://algarvehomestay.pt/assets/logo-ahs-192.png",
-      "image": "https://algarvehomestay.pt/assets/hero-praia.jpg",
+      "logo": { "@id": "https://algarvehomestay.pt/#logo" },
+      "image": { "@id": "https://algarvehomestay.pt/#primary-image" },
       "email": "ahspropriedades@gmail.com",
       "telephone": "+351912647423",
       "address": {
@@ -74,11 +74,11 @@
       ]
     },
     {
-      "@type": ["RealEstateAgent", "ProfessionalService", "LocalBusiness"],
+      "@type": "RealEstateAgent",
       "@id": "https://algarvehomestay.pt/#professional-service",
       "name": "AHS Algarve Home Stay",
       "url": "https://algarvehomestay.pt",
-      "image": "https://algarvehomestay.pt/assets/hero-praia.jpg",
+      "image": { "@id": "https://algarvehomestay.pt/#primary-image" },
       "email": "ahspropriedades@gmail.com",
       "telephone": "+351912647423",
       "priceRange": "Sob consulta",
@@ -90,15 +90,6 @@
         "addressCountry": "PT"
       },
       "areaServed": { "@type": "AdministrativeArea", "name": "Algarve" },
-      "serviceType": [
-        "Gestão patrimonial imobiliária",
-        "Consultoria imobiliária",
-        "Exploração de imóveis",
-        "Gestão de alojamento local",
-        "Investimento imobiliário",
-        "Desenvolvimento imobiliário",
-        "Coordenação de remodelações"
-      ],
       "makesOffer": [
         {
           "@type": "Offer",
@@ -123,6 +114,20 @@
       "inLanguage": "pt-PT"
     },
     {
+      "@type": "ImageObject",
+      "@id": "https://algarvehomestay.pt/#logo",
+      "url": "https://algarvehomestay.pt/assets/logo-ahs-192.png",
+      "contentUrl": "https://algarvehomestay.pt/assets/logo-ahs-192.png",
+      "caption": "Logótipo AHS Algarve Home Stay"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://algarvehomestay.pt/#primary-image",
+      "url": "https://algarvehomestay.pt/assets/hero-praia.jpg",
+      "contentUrl": "https://algarvehomestay.pt/assets/hero-praia.jpg",
+      "caption": "Costa do Algarve"
+    },
+    {
       "@type": "WebPage",
       "@id": "https://algarvehomestay.pt/#webpage",
       "name": "Algarve Home Stay | Gestão Patrimonial Imobiliária no Algarve",
@@ -142,7 +147,7 @@
   ]
 }
 </script>
-<script src="./support.js"></script>
+<script src="./support.js" defer></script>
 </head>
 <body>
 <x-dc>
