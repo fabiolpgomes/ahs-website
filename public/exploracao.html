@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exploração de Imóveis e Alojamento Local | AHS Algarve</title>
+<meta name="description" content="Operacao e exploração de imóveis no Algarve com foco em rendimento, ocupação e acompanhamento continuo de performance.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://algarvehomestay.pt/exploracao.html">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:site_name" content="AHS Algarve Home Stay">
+<meta property="og:title" content="Exploração de Imóveis e Alojamento Local | AHS Algarve">
+<meta property="og:description" content="Operacao e exploração de imóveis no Algarve com foco em rendimento, ocupação e acompanhamento continuo de performance.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://algarvehomestay.pt/exploracao.html">
+<meta property="og:image" content="https://algarvehomestay.pt/assets/hero-praia.jpg">
+<meta property="og:locale" content="pt_PT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Exploração de Imóveis e Alojamento Local | AHS Algarve">
+<meta name="twitter:description" content="Operacao e exploração de imóveis no Algarve com foco em rendimento, ocupação e acompanhamento continuo de performance.">
+<meta name="twitter:image" content="https://algarvehomestay.pt/assets/hero-praia.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["RealEstateAgent","ProfessionalService","LocalBusiness"],"@id":"https://algarvehomestay.pt/#professional-service","name":"AHS Algarve Home Stay","url":"https://algarvehomestay.pt","telephone":"+351912647423","email":"ahspropriedades@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Armação de Pêra","addressRegion":"Algarve","addressCountry":"PT"},"areaServed":{"@type":"AdministrativeArea","name":"Algarve"}},{"@type":"Service","@id":"https://algarvehomestay.pt/exploracao.html#service","name":"Exploração de imóveis e alojamento local","description":"Exploração de imóveis, alojamento local e gestão operacional para proprietários que pretendem rentabilizar ativos no Algarve.","serviceType":"Gestão de alojamento local","provider":{"@id":"https://algarvehomestay.pt/#professional-service"},"areaServed":{"@type":"AdministrativeArea","name":"Algarve"},"url":"https://algarvehomestay.pt/exploracao.html"},{"@type":"BreadcrumbList","@id":"https://algarvehomestay.pt/exploracao.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"AHS Algarve Home Stay","item":"https://algarvehomestay.pt/"},{"@type":"ListItem","position":2,"name":"Exploração de imóveis e alojamento local","item":"https://algarvehomestay.pt/exploracao.html"}]}]}</script>
+<script src="./support.js" defer></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Exploração de Imóveis e Alojamento Local | AHS Algarve</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap');
+body{margin:0;background:#F7F5EF;}
+a{color:#C9A227;}
+a:hover{color:#10203E;}
+</style>
+</helmet>
+<div style="font-family:Georgia,'Times New Roman',serif;background:#F7F5EF;color:#1B2430;">
+<dc-import name="Nav" active="exploracao" hint-size="100%,80px"></dc-import>
+
+<section style="position:relative;padding:{{ heroPad }};background:linear-gradient(180deg, rgba(16,32,62,0.55), rgba(12,24,48,0.88)), url('assets/familia-praia.jpg') center/cover no-repeat;">
+  <div style="max-width:900px;margin:0 auto;">
+    <div style="font-size:13px;letter-spacing:0.2em;text-transform:uppercase;color:#C9A227;margin-bottom:20px;">Pilar 05 · Exploração</div>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(34px,5vw,54px);color:#FBFAF6;margin:0 0 20px;line-height:1.15;">Gerar rendimento.</h1>
+    <p style="font-size:17px;color:#E4E1D8;max-width:600px;line-height:1.6;margin:0;">Operamos o imóvel no modelo certo para maximizar rentabilidade.</p>
+  </div>
+</section>
+
+<section style="padding:{{ modelosPad }};background:#F7F5EF;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#C9A227;margin-bottom:20px;">Modelos de Exploração</div>
+    <div style="display:grid;grid-template-columns:{{ modelosCols }};gap:16px;">
+      <sc-for list="{{ modelos }}" as="m" hint-placeholder-count="6">
+        <div style="background:#EFEBE0;padding:20px 22px;font-size:15px;font-weight:600;color:#10203E;border-left:3px solid #C9A227;">{{ m }}</div>
+      </sc-for>
+    </div>
+    <a href="apresentacao-locacao-curta-temporada.html" style="display:inline-flex;align-items:center;gap:10px;margin-top:28px;font-size:15px;font-weight:700;color:#10203E;text-decoration:none;border-bottom:2px solid #C9A227;padding-bottom:2px;">Ver Apresentação: Locação de Curta Temporada →</a>
+  </div>
+</section>
+
+<section style="padding:{{ servicosPad }};background:#F7F5EF;">
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:{{ pilarCols }};gap:{{ pilarGap }};">
+    <div>
+      <div style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#C9A227;margin-bottom:20px;">Serviços</div>
+      <div style="display:flex;flex-direction:column;gap:0;">
+        <sc-for list="{{ servicos }}" as="s" hint-placeholder-count="8">
+          <div style="display:flex;align-items:center;gap:14px;padding:16px 0;border-bottom:1px solid #10203E14;">
+            <span style="width:6px;height:6px;background:#C9A227;flex-shrink:0;"></span>
+            <span style="font-size:16px;color:#1B2430;">{{ s }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:32px;">
+      <div style="background:#10203E;padding:36px;">
+        <div style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#C9A227;margin-bottom:14px;">Resultado Esperado</div>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:#FBFAF6;margin:0;line-height:1.3;">Maior rentabilidade.</p>
+      </div>
+      <a href="contacto.html" style="display:block;text-align:center;background:#C9A227;color:#10203E;font-size:14px;font-weight:700;padding:18px;text-decoration:none;letter-spacing:0.02em;">Agendar Consulta Patrimonial</a>
+    </div>
+  </div>
+</section>
+
+<section style="padding:{{ hubPad }};background:#FBFAF6;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#C9A227;margin-bottom:16px;">Knowledge Hub do Pilar Exploração</div>
+    <div style="display:grid;grid-template-columns:{{ hubCols }};gap:{{ hubGap }};align-items:start;">
+      <div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,44px);font-weight:600;color:#10203E;margin:0 0 18px;line-height:1.12;">Guias, perguntas e processo para proprietários.</h2>
+        <p style="font-size:16px;line-height:1.7;color:#4D5566;margin:0;">Conteúdo do pilar Exploração para responder dúvidas sobre alojamento local, Airbnb, Booking, operação, preço, custos, IA e rentabilidade no Algarve.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:{{ hubCardCols }};gap:14px;">
+        <a href="guias.html" style="display:block;background:#F7F5EF;border-top:3px solid #C9A227;padding:20px;text-decoration:none;">
+          <strong style="display:block;color:#10203E;margin-bottom:8px;">Exploração Knowledge Hub</strong>
+          <span style="font-size:14px;line-height:1.6;color:#4D5566;">Índice dos guias práticos para rentabilização e operação.</span>
+        </a>
+        <a href="rentabilidade-imovel-algarve.html" style="display:block;background:#F7F5EF;border-top:3px solid #C9A227;padding:20px;text-decoration:none;">
+          <strong style="display:block;color:#10203E;margin-bottom:8px;">Rentabilidade do Imóvel</strong>
+          <span style="font-size:14px;line-height:1.6;color:#4D5566;">Dados, custos, regras e critérios para comparar modelos de exploração.</span>
+        </a>
+        <a href="faq-alojamento-local.html" style="display:block;background:#F7F5EF;border-top:3px solid #C9A227;padding:20px;text-decoration:none;">
+          <strong style="display:block;color:#10203E;margin-bottom:8px;">FAQ Alojamento Local</strong>
+          <span style="font-size:14px;line-height:1.6;color:#4D5566;">200 perguntas e respostas estruturadas para SEO e IA.</span>
+        </a>
+        <a href="como-trabalhamos.html" style="display:block;background:#F7F5EF;border-top:3px solid #C9A227;padding:20px;text-decoration:none;">
+          <strong style="display:block;color:#10203E;margin-bottom:8px;">Como Trabalhamos</strong>
+          <span style="font-size:14px;line-height:1.6;color:#4D5566;">Fluxo operacional da avaliação aos relatórios.</span>
+        </a>
+        <a href="inteligencia-artificial-gestao-alojamento-local.html" style="display:block;background:#F7F5EF;border-top:3px solid #C9A227;padding:20px;text-decoration:none;">
+          <strong style="display:block;color:#10203E;margin-bottom:8px;">IA na Gestão de AL</strong>
+          <span style="font-size:14px;line-height:1.6;color:#4D5566;">Pricing, automação, calendários e leitura de receita.</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:{{ outrosPad }};background:#EFEBE0;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#C9A227;margin-bottom:24px;text-align:center;">Explore os Outros Pilares</div>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;">
+      <sc-for list="{{ outros }}" as="p" hint-placeholder-count="5">
+        <a href="{{ p.href }}" style="background:#FBFAF6;padding:14px 24px;font-size:14px;font-weight:600;color:#10203E;text-decoration:none;border-bottom:2px solid #C9A227;">{{ p.title }}</a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<dc-import name="Footer" hint-size="100%,400px"></dc-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { width: typeof window !== 'undefined' ? window.innerWidth : 1280 };
+  componentDidMount() { this._onResize = () => this.setState({ width: window.innerWidth }); window.addEventListener('resize', this._onResize); }
+  componentWillUnmount() { window.removeEventListener('resize', this._onResize); }
+  renderVals() {
+    const isMobile = this.state.width < 900;
+    return {
+      heroPad: isMobile ? '100px 20px 56px' : '140px 32px 96px',
+      modelosPad: isMobile ? '56px 20px 40px' : '96px 32px 64px',
+      modelosCols: isMobile ? '1fr 1fr' : 'repeat(3,1fr)',
+      servicosPad: isMobile ? '40px 20px 56px' : '64px 32px 96px',
+      pilarCols: isMobile ? '1fr' : '1.1fr 1fr',
+      pilarGap: isMobile ? '40px' : '64px',
+      hubPad: isMobile ? '56px 20px 64px' : '88px 32px 96px',
+      hubCols: isMobile ? '1fr' : '0.82fr 1.18fr',
+      hubCardCols: isMobile ? '1fr' : '1fr 1fr',
+      hubGap: isMobile ? '32px' : '48px',
+      outrosPad: isMobile ? '56px 20px 64px' : '80px 32px 100px',
+      modelos: ['Alojamento Local','Média duração','Longa duração','Corporate Housing','Student Housing','Luxury Rentals'],
+      servicos: ['Revenue Management','Marketing','Comunicação','Check-in','Limpeza','Lavandaria','Manutenção','Atendimento'],
+      outros: [
+        { title: 'Investimento', href: 'investimento.html' },
+        { title: 'Consultoria Estratégica', href: 'consultoria.html' },
+        { title: 'Desenvolvimento', href: 'desenvolvimento.html' },
+        { title: 'Construção & Remodelação', href: 'construcao-remodelacao.html' },
+        { title: 'Gestão Patrimonial', href: 'gestao-patrimonial.html' },
+      ],
+    };
+  }
+}
+
+</script>
+</body>
+</html>
