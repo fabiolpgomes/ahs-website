@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/ahs-collection-guide",
+      "destination": "https://the-algarve-collection-mvp.vercel.app/website/",
+      "permanent": false
+    },
+    {
       "source": "/:path*",
       "has": [
         {
