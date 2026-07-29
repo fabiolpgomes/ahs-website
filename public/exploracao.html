@@ -51,7 +51,7 @@ a:hover{color:#10203E;}
     <div style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#C9A227;margin-bottom:20px;">Modelos de Exploração</div>
     <div style="display:grid;grid-template-columns:{{ modelosCols }};gap:16px;">
       <sc-for list="{{ modelos }}" as="m" hint-placeholder-count="6">
-        <a href="{{ m.href }}" style="background:#EFEBE0;padding:20px 22px;font-size:15px;font-weight:600;color:#10203E;border-left:3px solid #C9A227;text-decoration:none;display:block;cursor:pointer;" onclick="{{ m.href ? '' : 'event.preventDefault();' }}">{{ m.title }}</a>
+        <a href="{{ m.href }}" style="background:#EFEBE0;padding:20px 22px;font-size:15px;font-weight:600;color:#10203E;border-left:3px solid #C9A227;text-decoration:none;display:block;">{{ m.title }}</a>
       </sc-for>
     </div>
     <a href="apresentacao-locacao-curta-temporada.html" style="display:inline-flex;align-items:center;gap:10px;margin-top:28px;font-size:15px;font-weight:700;color:#10203E;text-decoration:none;border-bottom:2px solid #C9A227;padding-bottom:2px;">Ver Apresentação: Locação de Curta Temporada →</a>
@@ -151,11 +151,11 @@ class Component extends DCLogic {
       outrosPad: isMobile ? '56px 20px 64px' : '80px 32px 100px',
       modelos: [
         { title: 'Alojamento Local', href: 'planos-gestao-al.html' },
-        { title: 'Média duração', href: null },
-        { title: 'Longa duração', href: null },
-        { title: 'Corporate Housing', href: null },
-        { title: 'Student Housing', href: null },
-        { title: 'Luxury Rentals', href: null }
+        { title: 'Média duração', href: '#' },
+        { title: 'Longa duração', href: '#' },
+        { title: 'Corporate Housing', href: '#' },
+        { title: 'Student Housing', href: '#' },
+        { title: 'Luxury Rentals', href: '#' }
       ],
       servicos: ['Revenue Management','Marketing','Comunicação','Check-in','Limpeza','Lavandaria','Manutenção','Atendimento'],
       outros: [
