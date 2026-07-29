@@ -2,7 +2,7 @@
 
 ## Status
 
-Ready for Review
+Done
 
 ## Story
 
@@ -25,7 +25,7 @@ Ready for Review
 
 - [x] Adicionar a rota empresarial ao `vercel.json`.
 - [x] Executar os quality gates.
-- [ ] Validar o redirecionamento publicado.
+- [x] Validar o redirecionamento publicado.
 
 ## Dev Agent Record
 
@@ -55,4 +55,5 @@ Ready for Review
   `www` host consolidation rule.
 - JSON syntax and all repository quality gates pass in a clean release copy.
 - CodeRabbit reported no critical findings.
-- Final production HTTP validation remains a post-deploy task.
+- Production validation passed: the company URL returns HTTP 307 to the guide,
+  whose final response is HTTP 200.
