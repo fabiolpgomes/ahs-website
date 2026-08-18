@@ -150,25 +150,45 @@ a:hover{color:#10203E;}
 </x-dc>
 
 <script>
-// Força card Resultado Esperado a ser clicável (fora do DCLogic)
-document.addEventListener('DOMContentLoaded', function() {
-  const makeCardClickable = () => {
-    const card = document.querySelector('.ahs-sim-card');
-    if (card) {
-      card.style.cursor = 'pointer';
-      card.style.pointerEvents = 'auto';
-      card.onclick = (e) => {
+// Força card Resultado Esperado a ser clicável (procura por texto específico)
+function makeResultadoEsperadoClickable() {
+  // Procura por qualquer elemento que tenha "Resultado Esperado" como texto
+  const allElements = document.querySelectorAll('*');
+  let found = false;
+
+  for (let el of allElements) {
+    // Procura por elemento que contenha "Resultado Esperado" E "Maior rentabilidade"
+    if (el.textContent.includes('Resultado Esperado') &&
+        el.textContent.includes('Maior rentabilidade') &&
+        el.textContent.length < 200) { // Evita elementos pais muito grandes
+
+      // Encontrou o card
+      console.log('Encontrado card:', el);
+      el.style.cursor = 'pointer';
+      el.style.pointerEvents = 'auto';
+      el.onclick = (e) => {
+        console.log('Card clicado!');
         e.preventDefault();
         e.stopPropagation();
         window.location.href = '/simulador.html';
         return false;
       };
-    } else {
-      setTimeout(makeCardClickable, 200);
+      found = true;
+      break;
     }
-  };
-  setTimeout(makeCardClickable, 500);
+  }
+
+  if (!found) {
+    setTimeout(makeResultadoEsperadoClickable, 200);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(makeResultadoEsperadoClickable, 500);
 });
+
+// Fallback: também tenta após um tempo maior
+setTimeout(makeResultadoEsperadoClickable, 2000);
 </script>
 
 <script type="text/x-dc" data-dc-script>
