@@ -258,8 +258,84 @@ function createSimuladorCTA() {
   }
 }
 
+// Adicionar botão "Simular Ganhos" na navegação
+function addSimuladorToNav() {
+  // Procurar por elemento de navegação ou nav
+  const nav = document.querySelector('nav') || document.querySelector('[role="navigation"]') || document.querySelector('header');
+
+  if (!nav) {
+    // Se não encontrar nav, procurar por links de navegação existentes
+    const navLinks = document.querySelectorAll('a[href*="home"], a[href*="quem"], a[href*="pilar"]');
+    if (navLinks.length > 0) {
+      const lastLink = navLinks[navLinks.length - 1];
+      // Criar botão simulador
+      const simBtn = document.createElement('a');
+      simBtn.href = '/simulador.html';
+      simBtn.textContent = 'Simular Ganhos';
+      simBtn.style.cssText = `
+        display: inline-block;
+        background: linear-gradient(135deg, #0284c7, #0ea5e9);
+        color: white;
+        padding: 10px 24px;
+        font-weight: 700;
+        border-radius: 4px;
+        text-decoration: none;
+        margin-left: 20px;
+        transition: all .3s ease;
+        font-size: 14px;
+      `;
+      simBtn.addEventListener('mouseover', function() {
+        this.style.transform = 'scale(1.05)';
+        this.style.boxShadow = '0 8px 20px rgba(2, 132, 199, 0.3)';
+      });
+      simBtn.addEventListener('mouseout', function() {
+        this.style.transform = 'scale(1)';
+        this.style.boxShadow = 'none';
+      });
+      lastLink.parentNode.appendChild(simBtn);
+    }
+    return;
+  }
+
+  // Se encontrou nav, procurar pelo último link de navegação
+  const navItems = nav.querySelectorAll('a');
+  if (navItems.length > 0) {
+    const lastLink = navItems[navItems.length - 1];
+
+    // Criar botão simulador
+    const simBtn = document.createElement('a');
+    simBtn.href = '/simulador.html';
+    simBtn.textContent = 'Simular Ganhos';
+    simBtn.style.cssText = `
+      display: inline-block;
+      background: linear-gradient(135deg, #0284c7, #0ea5e9);
+      color: white;
+      padding: 10px 24px;
+      font-weight: 700;
+      border-radius: 4px;
+      text-decoration: none;
+      margin-left: 20px;
+      transition: all .3s ease;
+      font-size: 14px;
+    `;
+    simBtn.addEventListener('mouseover', function() {
+      this.style.transform = 'scale(1.05)';
+      this.style.boxShadow = '0 8px 20px rgba(2, 132, 199, 0.3)';
+    });
+    simBtn.addEventListener('mouseout', function() {
+      this.style.transform = 'scale(1)';
+      this.style.boxShadow = 'none';
+    });
+
+    lastLink.parentNode.insertBefore(simBtn, lastLink.nextSibling);
+  }
+}
+
 // Usar setTimeout com delay maior (2500ms) para garantir que DCLogic processou tudo
-setTimeout(createSimuladorCTA, 2500);
+setTimeout(function() {
+  createSimuladorCTA();
+  addSimuladorToNav();
+}, 2500);
 </script>
 
 <script>
