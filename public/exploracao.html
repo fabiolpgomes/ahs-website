@@ -261,51 +261,9 @@ function createSimuladorCTA() {
   }
 }
 
-// Adicionar botão "Simular Ganhos" - fallback: criar overlay fixo
-function addSimuladorToNav() {
-  // Verificar se o botão já existe
-  if (document.querySelector('a[href="/simulador.html"]')) return;
-
-  // Criar botão com position fixed como fallback
-  const simBtn = document.createElement('a');
-  simBtn.href = '/simulador.html';
-  simBtn.textContent = 'Simular Ganhos →';
-  simBtn.style.cssText = `
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 9999;
-    display: inline-block;
-    background: linear-gradient(135deg, #0284c7, #0ea5e9);
-    color: white;
-    padding: 14px 32px;
-    font-weight: 700;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: all .3s ease;
-    font-size: 14px;
-    white-space: nowrap;
-    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  `;
-
-  simBtn.addEventListener('mouseover', function() {
-    this.style.transform = 'scale(1.05)';
-    this.style.boxShadow = '0 8px 24px rgba(2, 132, 199, 0.5)';
-  });
-
-  simBtn.addEventListener('mouseout', function() {
-    this.style.transform = 'scale(1)';
-    this.style.boxShadow = '0 4px 12px rgba(2, 132, 199, 0.3)';
-  });
-
-  document.body.appendChild(simBtn);
-}
-
-// Usar setTimeout com delay maior (3500ms) para garantir que DCLogic processou tudo
+// Usar setTimeout para criar seções após DCLogic processar
 setTimeout(function() {
   createSimuladorCTA();
-  addSimuladorToNav();
 }, 3500);
 </script>
 
