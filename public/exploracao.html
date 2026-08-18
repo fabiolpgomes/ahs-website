@@ -148,7 +148,17 @@ a:hover{color:#10203E;}
 // Criar seção CTA Simulador no topo + card nos serviços
 document.addEventListener('DOMContentLoaded', function() {
   // ===== SEÇÃO CTA NO TOPO (logo após hero) =====
-  const heroSection = document.querySelector('section[style*="heroPad"]');
+  // Procura pelo hero section (primeiro section que tem "Pilar 05")
+  const sections = document.querySelectorAll('section');
+  let heroSection = null;
+
+  for (let section of sections) {
+    if (section.textContent.includes('Pilar 05') && section.textContent.includes('Gerar rendimento')) {
+      heroSection = section;
+      break;
+    }
+  }
+
   if (heroSection && heroSection.nextElementSibling) {
     const ctaSection = document.createElement('section');
     ctaSection.style.cssText = `
