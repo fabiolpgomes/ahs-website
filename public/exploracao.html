@@ -89,6 +89,13 @@ a:hover{color:#10203E;}
         .ahs-sim-cta .arrow{ transition:transform .18s ease; }
         .ahs-sim-card:hover .arrow{ transform:translateX(4px); }
       </style>
+      <form action="/simulador.html" method="GET" style="margin:0;">
+        <button type="submit" style="display:block; width:100%; background:#1B2A4A; border-radius:2px; padding:40px 36px; color:#fff; border:none; cursor:pointer; transition:transform .18s ease, box-shadow .18s ease; font-family:inherit; margin-bottom:32px;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 12px 28px rgba(27,42,74,.25)';" onmouseout="this.style.transform='none'; this.style.boxShadow='none';">
+          <div style="font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#D9C49C; font-weight:600; margin-bottom:14px; text-align:left;">Resultado Esperado</div>
+          <div style="font-family:'Fraunces',Georgia,serif; font-size:32px; color:#fff; margin-bottom:22px; text-align:left; margin:0 0 22px;">Maior rentabilidade.</div>
+          <div style="display:flex; align-items:center; gap:8px; font-size:14px; font-weight:700; color:#D9C49C; text-align:left;">Simule o seu ganho real em 30 segundos <span>→</span></div>
+        </button>
+      </form>
       <a href="contacto.html" style="display:block;text-align:center;background:#C9A227;color:#10203E;font-size:14px;font-weight:700;padding:18px;text-decoration:none;letter-spacing:0.02em;">Agendar Consulta Patrimonial</a>
     </div>
   </div>
@@ -143,15 +150,6 @@ a:hover{color:#10203E;}
 </div>
 
 </x-dc>
-
-<!-- Card Resultado Esperado como FORMULÁRIO (não pode ser destruído pelo DCLogic) -->
-<form action="/simulador.html" method="GET" style="display: contents;">
-  <button type="submit" style="display:block; width:100%; max-width:1100px; margin:0 auto 32px; background:#1B2A4A; border-radius:2px; padding:40px 36px; color:#fff; border:none; cursor:pointer; transition:transform .18s ease, box-shadow .18s ease; font-family:inherit;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 12px 28px rgba(27,42,74,.25)';" onmouseout="this.style.transform='none'; this.style.boxShadow='none';">
-    <div style="font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#D9C49C; font-weight:600; margin-bottom:14px; text-align:left;">Resultado Esperado</div>
-    <div style="font-family:'Fraunces',Georgia,serif; font-size:32px; color:#fff; margin-bottom:22px; text-align:left;">Maior rentabilidade.</div>
-    <div style="display:flex; align-items:center; gap:8px; font-size:14px; font-weight:700; color:#D9C49C; text-align:left;">Simule o seu ganho real em 30 segundos <span>→</span></div>
-  </button>
-</form>
 
 <script>
 // Script para tornar card clicável
