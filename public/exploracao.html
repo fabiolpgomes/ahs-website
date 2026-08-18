@@ -25,87 +25,48 @@
 <script src="./support.js" defer></script>
 </head>
 <body>
-<!-- Botão Simular Ganhos na Navbar -->
+<!-- Botão Simular Ganhos Overlay -->
 <style>
-  .nav-simulador-btn {
-    display:inline-block;
-    background:linear-gradient(135deg,#0284c7,#0ea5e9);
-    color:white;
-    padding:10px 20px;
-    font-weight:700;
-    border-radius:4px;
-    text-decoration:none;
-    transition:all 0.3s ease;
-    font-size:14px;
-    white-space:nowrap;
-    box-shadow:0 4px 12px rgba(2,132,199,0.3);
-    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-    margin-left:20px;
+  .simulador-cta-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #0284c7, #0ea5e9);
+    color: white;
+    padding: 12px 24px;
+    font-weight: 700;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(2,132,199,0.3);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    z-index: 999;
+    border: none;
   }
-  .nav-simulador-btn:hover {
-    transform:scale(1.05);
-    box-shadow:0 8px 24px rgba(2,132,199,0.5);
+  .simulador-cta-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(2,132,199,0.5);
+  }
+  @media (max-width: 768px) {
+    .simulador-cta-btn {
+      top: 10px;
+      right: 10px;
+      padding: 10px 16px;
+      font-size: 12px;
+    }
   }
 </style>
 <script>
-  function injectSimuladorButton() {
-    if (document.querySelector('.nav-simulador-btn')) return true;
-
-    // Procurar por qualquer elemento contendo "Área do Cliente"
-    const allElements = document.querySelectorAll('*');
-    let targetElement = null;
-
-    for (let el of allElements) {
-      if (el.textContent.includes('Área do Cliente') && el.tagName === 'A') {
-        targetElement = el;
-        break;
-      }
-    }
-
-    if (!targetElement) {
-      // Fallback: procurar por "Contacto"
-      for (let el of allElements) {
-        if (el.textContent.includes('Contacto') && el.tagName === 'A') {
-          targetElement = el;
-        }
-      }
-    }
-
-    if (targetElement && targetElement.parentNode) {
-      const navBtn = document.createElement('a');
-      navBtn.href = '/simulador.html';
-      navBtn.textContent = 'Simular Ganhos →';
-      navBtn.className = 'nav-simulador-btn';
-      targetElement.parentNode.appendChild(navBtn);
-      return true;
-    }
-    return false;
-  }
-
-  // Tentar injetar assim que possível
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      setTimeout(injectSimuladorButton, 100);
-    });
-  } else {
-    setTimeout(injectSimuladorButton, 100);
-  }
-
-  // MutationObserver como fallback
-  const observer = new MutationObserver(() => {
-    if (injectSimuladorButton()) {
-      observer.disconnect();
-    }
+  document.addEventListener('DOMContentLoaded', function() {
+    const btn = document.createElement('a');
+    btn.href = '/simulador.html';
+    btn.textContent = 'Simular Ganhos →';
+    btn.className = 'simulador-cta-btn';
+    btn.title = 'Aceda ao simulador de ganhos de imóvel';
+    document.body.appendChild(btn);
   });
-
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true,
-    characterData: true
-  });
-
-  // Timeout para desligar o observer
-  setTimeout(() => observer.disconnect(), 10000);
 </script>
 
 <x-dc>
