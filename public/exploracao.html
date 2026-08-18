@@ -49,15 +49,24 @@
 </style>
 <script>
   function injectSimuladorButton() {
-    const navLinks = document.querySelectorAll('a[href*="contacto"], a[href*="area-cliente"]');
-    if (navLinks.length > 0) {
-      const lastLink = navLinks[navLinks.length - 1];
-      if (!lastLink.parentNode.querySelector('.nav-simulador-btn')) {
+    // Procurar por links contendo "Contacto" ou "Área do Cliente"
+    const allLinks = Array.from(document.querySelectorAll('a'));
+    const targetLink = allLinks.find(link =>
+      link.textContent.includes('Contacto') ||
+      link.textContent.includes('Área do Cliente')
+    );
+
+    if (targetLink) {
+      // Verificar se o botão já foi injetado
+      if (!document.querySelector('.nav-simulador-btn')) {
         const navBtn = document.createElement('a');
         navBtn.href = '/simulador.html';
         navBtn.textContent = 'Simular Ganhos →';
         navBtn.className = 'nav-simulador-btn';
-        lastLink.parentNode.appendChild(navBtn);
+
+        // Injetar após o último link de navegação encontrado
+        const navContainer = targetLink.parentNode;
+        navContainer.appendChild(navBtn);
         return true;
       }
     }
@@ -79,9 +88,7 @@
 
   observer.observe(document.body, {
     childList: true,
-    subtree: true,
-    attributes: true,
-    attributeFilter: ['href']
+    subtree: true
   });
 
   setTimeout(() => observer.disconnect(), 5000);
