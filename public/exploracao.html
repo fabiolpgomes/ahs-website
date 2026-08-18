@@ -163,7 +163,7 @@ function createSimuladorCTA() {
   }
 
   // Se encontrou hero section, criar CTA
-  if (heroSection && heroSection.nextElementSibling) {
+  if (heroSection) {
     const ctaSection = document.createElement('section');
     ctaSection.style.cssText = `
       padding: 80px 32px;
@@ -180,7 +180,8 @@ function createSimuladorCTA() {
       </div>
     `;
 
-    heroSection.parentNode.insertBefore(ctaSection, heroSection.nextElementSibling);
+    // Usar .after() para inserir após o hero section (API moderna)
+    heroSection.after(ctaSection);
   }
 
   // ===== CARD NOS SERVIÇOS =====
