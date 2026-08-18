@@ -89,11 +89,6 @@ a:hover{color:#10203E;}
         .ahs-sim-cta .arrow{ transition:transform .18s ease; }
         .ahs-sim-card:hover .arrow{ transform:translateX(4px); }
       </style>
-      <button onclick="window.location.href='/simulador.html'; return false;" style="display:block; width:100%; background:#1B2A4A; border-radius:2px; padding:40px 36px; color:#fff; border:none; cursor:pointer; transition:transform .18s ease, box-shadow .18s ease; font-family:inherit; margin-bottom:32px; text-align:left;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 12px 28px rgba(27,42,74,.25)';" onmouseout="this.style.transform='none'; this.style.boxShadow='none';">
-        <div style="font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#D9C49C; font-weight:600; margin-bottom:14px;">Resultado Esperado</div>
-        <div style="font-family:'Fraunces',Georgia,serif; font-size:32px; color:#fff; margin-bottom:22px;">Maior rentabilidade.</div>
-        <div style="display:flex; align-items:center; gap:8px; font-size:14px; font-weight:700; color:#D9C49C;">Simule o seu ganho real em 30 segundos <span>→</span></div>
-      </button>
       <a href="contacto.html" style="display:block;text-align:center;background:#C9A227;color:#10203E;font-size:14px;font-weight:700;padding:18px;text-decoration:none;letter-spacing:0.02em;">Agendar Consulta Patrimonial</a>
     </div>
   </div>
@@ -150,7 +145,76 @@ a:hover{color:#10203E;}
 </x-dc>
 
 <script>
-// Script para tornar card clicável
+// Criar card Resultado Esperado com JavaScript puro
+document.addEventListener('DOMContentLoaded', function() {
+  // Procura pela seção de serviços
+  const sections = document.querySelectorAll('section');
+  let servicoSection = null;
+
+  for (let section of sections) {
+    if (section.textContent.includes('SERVIÇOS')) {
+      servicoSection = section;
+      break;
+    }
+  }
+
+  if (servicoSection) {
+    // Procura pelo botão "Agendar Consulta"
+    const buttons = servicoSection.querySelectorAll('a');
+    let agendarBtn = null;
+
+    for (let btn of buttons) {
+      if (btn.textContent.includes('Agendar Consulta')) {
+        agendarBtn = btn;
+        break;
+      }
+    }
+
+    if (agendarBtn) {
+      // Cria o card
+      const card = document.createElement('div');
+      card.style.cssText = `
+        display: block;
+        background: #1B2A4A;
+        border-radius: 2px;
+        padding: 40px 36px;
+        color: white;
+        cursor: pointer;
+        margin-bottom: 32px;
+        transition: transform .18s ease, box-shadow .18s ease;
+        text-decoration: none;
+      `;
+
+      card.innerHTML = `
+        <div style="font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#D9C49C; font-weight:600; margin-bottom:14px;">Resultado Esperado</div>
+        <div style="font-family:'Fraunces',Georgia,serif; font-size:32px; color:#fff; margin-bottom:22px;">Maior rentabilidade.</div>
+        <div style="display:flex; align-items:center; gap:8px; font-size:14px; font-weight:700; color:#D9C49C;">Simule o seu ganho real em 30 segundos <span>→</span></div>
+      `;
+
+      // Add event listeners
+      card.addEventListener('click', function() {
+        window.location.href = '/simulador.html';
+      });
+
+      card.addEventListener('mouseover', function() {
+        this.style.transform = 'translateY(-2px)';
+        this.style.boxShadow = '0 12px 28px rgba(27,42,74,.25)';
+      });
+
+      card.addEventListener('mouseout', function() {
+        this.style.transform = 'none';
+        this.style.boxShadow = 'none';
+      });
+
+      // Insere o card antes do botão "Agendar Consulta"
+      agendarBtn.parentNode.insertBefore(card, agendarBtn);
+    }
+  }
+});
+</script>
+
+<script>
+// Script antigo para tornar card clicável
 function attachClickHandlers() {
   // Procura por elemento com data-href="/simulador.html"
   const card = document.querySelector('[data-href="/simulador.html"]');
