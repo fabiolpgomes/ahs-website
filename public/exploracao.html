@@ -147,17 +147,22 @@ a:hover{color:#10203E;}
 <script>
 // Criar seção CTA Simulador - com setTimeout para aguardar DCLogic
 function createSimuladorCTA() {
-  // ===== SEÇÃO CTA NO TOPO (logo após hero) =====
   const sections = document.querySelectorAll('section');
   let heroSection = null;
 
-  for (let section of sections) {
-    if (section.textContent.includes('Pilar 05') && section.textContent.includes('Gerar rendimento')) {
+  // Tentar encontrar hero section por múltiplos critérios
+  for (let i = 0; i < sections.length; i++) {
+    const section = sections[i];
+    const text = section.textContent;
+    // Procura por combinações: "Pilar 05" + "Gerar rendimento", ou só "Gerar rendimento"
+    if ((text.includes('Pilar 05') && text.includes('Gerar rendimento')) ||
+        (text.includes('Gerar rendimento.') && text.includes('Operamos'))) {
       heroSection = section;
       break;
     }
   }
 
+  // Se encontrou hero section, criar CTA
   if (heroSection && heroSection.nextElementSibling) {
     const ctaSection = document.createElement('section');
     ctaSection.style.cssText = `
@@ -181,7 +186,7 @@ function createSimuladorCTA() {
   // ===== CARD NOS SERVIÇOS =====
   let servicoSection = null;
   for (let section of sections) {
-    if (section.textContent.includes('SERVIÇOS')) {
+    if (section.textContent.includes('SERVIÇOS') || section.textContent.includes('Agendar Consulta')) {
       servicoSection = section;
       break;
     }
@@ -199,6 +204,10 @@ function createSimuladorCTA() {
     }
 
     if (agendarBtn) {
+      // Verificar se card já existe (evitar duplicação)
+      const existingCard = agendarBtn.parentNode.querySelector('div[style*="1B2A4A"]');
+      if (existingCard) return; // Card já existe
+
       const card = document.createElement('div');
       card.style.cssText = `
         display: block;
@@ -237,14 +246,8 @@ function createSimuladorCTA() {
   }
 }
 
-// Executar quando document está pronto E aguardar tempo extra para DCLogic
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(createSimuladorCTA, 500);
-  });
-} else {
-  setTimeout(createSimuladorCTA, 500);
-}
+// Usar setTimeout com delay maior (2500ms) para garantir que DCLogic processou tudo
+setTimeout(createSimuladorCTA, 2500);
 </script>
 
 <script>
