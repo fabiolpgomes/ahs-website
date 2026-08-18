@@ -258,66 +258,45 @@ function createSimuladorCTA() {
   }
 }
 
-// Adicionar botão "Simular Ganhos" na navegação
+// Adicionar botão "Simular Ganhos" - fallback: criar overlay fixo
 function addSimuladorToNav() {
   // Verificar se o botão já existe
-  const existingBtn = document.querySelector('a[href="/simulador.html"]');
-  if (existingBtn) return;
+  if (document.querySelector('a[href="/simulador.html"]')) return;
 
-  // Procurar por links "Contacto" ou "Área do Cliente"
-  const allLinks = document.querySelectorAll('a');
-  let targetLink = null;
+  // Criar botão com position fixed como fallback
+  const simBtn = document.createElement('a');
+  simBtn.href = '/simulador.html';
+  simBtn.textContent = 'Simular Ganhos →';
+  simBtn.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: inline-block;
+    background: linear-gradient(135deg, #0284c7, #0ea5e9);
+    color: white;
+    padding: 14px 32px;
+    font-weight: 700;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all .3s ease;
+    font-size: 14px;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  `;
 
-  for (let link of allLinks) {
-    if (link.textContent.trim() === 'Contacto' || link.textContent.trim() === 'Área do Cliente') {
-      targetLink = link;
-      break;
-    }
-  }
+  simBtn.addEventListener('mouseover', function() {
+    this.style.transform = 'scale(1.05)';
+    this.style.boxShadow = '0 8px 24px rgba(2, 132, 199, 0.5)';
+  });
 
-  if (targetLink) {
-    // Encontrar o container pai (nav ou container direto)
-    let container = targetLink.parentElement;
+  simBtn.addEventListener('mouseout', function() {
+    this.style.transform = 'scale(1)';
+    this.style.boxShadow = '0 4px 12px rgba(2, 132, 199, 0.3)';
+  });
 
-    // Se o container for muito pequeno, tentar subir um nível
-    if (container && container.children.length < 3) {
-      container = container.parentElement;
-    }
-
-    if (container) {
-      // Criar botão simulador
-      const simBtn = document.createElement('a');
-      simBtn.href = '/simulador.html';
-      simBtn.textContent = 'Simular Ganhos';
-      simBtn.style.cssText = `
-        display: inline-block;
-        background: linear-gradient(135deg, #0284c7, #0ea5e9);
-        color: white;
-        padding: 12px 28px;
-        font-weight: 700;
-        border-radius: 4px;
-        text-decoration: none;
-        margin: 0 20px;
-        transition: all .3s ease;
-        font-size: 14px;
-        white-space: nowrap;
-        vertical-align: middle;
-      `;
-
-      simBtn.addEventListener('mouseover', function() {
-        this.style.transform = 'scale(1.05)';
-        this.style.boxShadow = '0 8px 20px rgba(2, 132, 199, 0.3)';
-      });
-
-      simBtn.addEventListener('mouseout', function() {
-        this.style.transform = 'scale(1)';
-        this.style.boxShadow = 'none';
-      });
-
-      // Inserir antes do elemento "Contacto"
-      container.insertBefore(simBtn, targetLink);
-    }
-  }
+  document.body.appendChild(simBtn);
 }
 
 // Usar setTimeout com delay maior (2500ms) para garantir que DCLogic processou tudo
