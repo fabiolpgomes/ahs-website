@@ -49,38 +49,50 @@
 </style>
 <script>
   function injectSimuladorButton() {
-    // Procurar por links contendo "Contacto" ou "Área do Cliente"
-    const allLinks = Array.from(document.querySelectorAll('a'));
-    const targetLink = allLinks.find(link =>
-      link.textContent.includes('Contacto') ||
-      link.textContent.includes('Área do Cliente')
-    );
+    if (document.querySelector('.nav-simulador-btn')) return true;
 
-    if (targetLink) {
-      // Verificar se o botão já foi injetado
-      if (!document.querySelector('.nav-simulador-btn')) {
-        const navBtn = document.createElement('a');
-        navBtn.href = '/simulador.html';
-        navBtn.textContent = 'Simular Ganhos →';
-        navBtn.className = 'nav-simulador-btn';
+    // Procurar por qualquer elemento contendo "Área do Cliente"
+    const allElements = document.querySelectorAll('*');
+    let targetElement = null;
 
-        // Injetar após o último link de navegação encontrado
-        const navContainer = targetLink.parentNode;
-        navContainer.appendChild(navBtn);
-        return true;
+    for (let el of allElements) {
+      if (el.textContent.includes('Área do Cliente') && el.tagName === 'A') {
+        targetElement = el;
+        break;
       }
+    }
+
+    if (!targetElement) {
+      // Fallback: procurar por "Contacto"
+      for (let el of allElements) {
+        if (el.textContent.includes('Contacto') && el.tagName === 'A') {
+          targetElement = el;
+        }
+      }
+    }
+
+    if (targetElement && targetElement.parentNode) {
+      const navBtn = document.createElement('a');
+      navBtn.href = '/simulador.html';
+      navBtn.textContent = 'Simular Ganhos →';
+      navBtn.className = 'nav-simulador-btn';
+      targetElement.parentNode.appendChild(navBtn);
+      return true;
     }
     return false;
   }
 
+  // Tentar injetar assim que possível
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', injectSimuladorButton);
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(injectSimuladorButton, 100);
+    });
   } else {
-    injectSimuladorButton();
+    setTimeout(injectSimuladorButton, 100);
   }
 
-  // Fallback: usar MutationObserver se o script anterior não funcionar
-  const observer = new MutationObserver(function(mutations) {
+  // MutationObserver como fallback
+  const observer = new MutationObserver(() => {
     if (injectSimuladorButton()) {
       observer.disconnect();
     }
@@ -88,10 +100,12 @@
 
   observer.observe(document.body, {
     childList: true,
-    subtree: true
+    subtree: true,
+    characterData: true
   });
 
-  setTimeout(() => observer.disconnect(), 5000);
+  // Timeout para desligar o observer
+  setTimeout(() => observer.disconnect(), 10000);
 </script>
 
 <x-dc>
