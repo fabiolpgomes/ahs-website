@@ -48,18 +48,43 @@
   }
 </style>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Procurar pelo último link de navegação (Contacto ou Área do Cliente)
+  function injectSimuladorButton() {
     const navLinks = document.querySelectorAll('a[href*="contacto"], a[href*="area-cliente"]');
     if (navLinks.length > 0) {
       const lastLink = navLinks[navLinks.length - 1];
-      const navBtn = document.createElement('a');
-      navBtn.href = '/simulador.html';
-      navBtn.textContent = 'Simular Ganhos →';
-      navBtn.className = 'nav-simulador-btn';
-      lastLink.parentNode.appendChild(navBtn);
+      if (!lastLink.parentNode.querySelector('.nav-simulador-btn')) {
+        const navBtn = document.createElement('a');
+        navBtn.href = '/simulador.html';
+        navBtn.textContent = 'Simular Ganhos →';
+        navBtn.className = 'nav-simulador-btn';
+        lastLink.parentNode.appendChild(navBtn);
+        return true;
+      }
+    }
+    return false;
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', injectSimuladorButton);
+  } else {
+    injectSimuladorButton();
+  }
+
+  // Fallback: usar MutationObserver se o script anterior não funcionar
+  const observer = new MutationObserver(function(mutations) {
+    if (injectSimuladorButton()) {
+      observer.disconnect();
     }
   });
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ['href']
+  });
+
+  setTimeout(() => observer.disconnect(), 5000);
 </script>
 
 <x-dc>
