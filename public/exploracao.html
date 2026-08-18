@@ -145,10 +145,9 @@ a:hover{color:#10203E;}
 </x-dc>
 
 <script>
-// Criar seção CTA Simulador no topo + card nos serviços
-document.addEventListener('DOMContentLoaded', function() {
+// Criar seção CTA Simulador - com setTimeout para aguardar DCLogic
+function createSimuladorCTA() {
   // ===== SEÇÃO CTA NO TOPO (logo após hero) =====
-  // Procura pelo hero section (primeiro section que tem "Pilar 05")
   const sections = document.querySelectorAll('section');
   let heroSection = null;
 
@@ -179,11 +178,8 @@ document.addEventListener('DOMContentLoaded', function() {
     heroSection.parentNode.insertBefore(ctaSection, heroSection.nextElementSibling);
   }
 
-  // ===== CARD NOS SERVIÇOS (mantido do script anterior) =====
-  // Procura pela seção de serviços
-  const sections = document.querySelectorAll('section');
+  // ===== CARD NOS SERVIÇOS =====
   let servicoSection = null;
-
   for (let section of sections) {
     if (section.textContent.includes('SERVIÇOS')) {
       servicoSection = section;
@@ -192,7 +188,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   if (servicoSection) {
-    // Procura pelo botão "Agendar Consulta"
     const buttons = servicoSection.querySelectorAll('a');
     let agendarBtn = null;
 
@@ -204,7 +199,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (agendarBtn) {
-      // Cria o card
       const card = document.createElement('div');
       card.style.cssText = `
         display: block;
@@ -224,7 +218,6 @@ document.addEventListener('DOMContentLoaded', function() {
         <div style="display:flex; align-items:center; gap:8px; font-size:14px; font-weight:700; color:#D9C49C;">Simule o seu ganho real em 30 segundos <span>→</span></div>
       `;
 
-      // Add event listeners
       card.addEventListener('click', function() {
         window.location.href = '/simulador.html';
       });
@@ -239,11 +232,19 @@ document.addEventListener('DOMContentLoaded', function() {
         this.style.boxShadow = 'none';
       });
 
-      // Insere o card antes do botão "Agendar Consulta"
       agendarBtn.parentNode.insertBefore(card, agendarBtn);
     }
   }
-});
+}
+
+// Executar quando document está pronto E aguardar tempo extra para DCLogic
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(createSimuladorCTA, 500);
+  });
+} else {
+  setTimeout(createSimuladorCTA, 500);
+}
 </script>
 
 <script>
