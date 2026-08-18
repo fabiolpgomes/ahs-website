@@ -148,6 +148,29 @@ a:hover{color:#10203E;}
 </div>
 
 </x-dc>
+
+<script>
+// Força card Resultado Esperado a ser clicável (fora do DCLogic)
+document.addEventListener('DOMContentLoaded', function() {
+  const makeCardClickable = () => {
+    const card = document.querySelector('.ahs-sim-card');
+    if (card) {
+      card.style.cursor = 'pointer';
+      card.style.pointerEvents = 'auto';
+      card.onclick = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        window.location.href = '/simulador.html';
+        return false;
+      };
+    } else {
+      setTimeout(makeCardClickable, 200);
+    }
+  };
+  setTimeout(makeCardClickable, 500);
+});
+</script>
+
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   state = { width: typeof window !== 'undefined' ? window.innerWidth : 1280 };
