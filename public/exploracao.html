@@ -151,7 +151,18 @@ a:hover{color:#10203E;}
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   state = { width: typeof window !== 'undefined' ? window.innerWidth : 1280 };
-  componentDidMount() { this._onResize = () => this.setState({ width: window.innerWidth }); window.addEventListener('resize', this._onResize); }
+  componentDidMount() {
+    this._onResize = () => this.setState({ width: window.innerWidth });
+    window.addEventListener('resize', this._onResize);
+    // Tornar card "Resultado Esperado" clicável
+    setTimeout(() => {
+      const card = document.querySelector('.ahs-sim-card');
+      if (card) {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', () => window.location.href = '/simulador.html');
+      }
+    }, 100);
+  }
   componentWillUnmount() { window.removeEventListener('resize', this._onResize); }
   renderVals() {
     const isMobile = this.state.width < 900;
